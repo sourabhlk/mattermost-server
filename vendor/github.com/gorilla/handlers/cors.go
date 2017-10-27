@@ -111,6 +111,8 @@ func (ch *cors) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set(corsAllowOriginHeader, origin)
+  //println("SUSH: SETTING IN CORS")
+  w.Header().Set(corsAllowCredentialsHeader, "true")
 
 	if r.Method == corsOptionMethod {
 		return

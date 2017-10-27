@@ -74,7 +74,7 @@ func runServer(configFileLocation string) {
 	a.InitBuiltInPlugins()
 
 	if webappDir, ok := utils.FindDir(model.CLIENT_DIR); ok {
-		a.InitPlugins(*a.Config().PluginSettings.Directory, webappDir+"/plugins")
+		a.InitPlugins("plugins", webappDir+"/plugins")
 	} else {
 		l4g.Error("Unable to find webapp directory, could not initialize plugins")
 	}
