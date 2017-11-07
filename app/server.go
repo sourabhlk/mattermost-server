@@ -57,10 +57,10 @@ type CorsWrapper struct {
 }
 
 func (cw *CorsWrapper) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-  //println("SUSHM++++++++++")
+
 	if len(*utils.Cfg.ServiceSettings.AllowCorsFrom) > 0 {
 		if utils.OriginChecker(r) {
-     // println("SUSH:SETTING HEADER")
+     l4g.Debug("otc: Allowing cors")
 			w.Header().Set("Access-Control-Allow-Origin", r.Header.Get("Origin"))
       w.Header().Set("Access-Control-Allow-Credentials", "true")
 
